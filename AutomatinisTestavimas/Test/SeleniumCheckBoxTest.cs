@@ -1,4 +1,4 @@
-﻿using AutomatinisTestavimas.Page;
+using AutomatinisTestavimas.Page;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -21,11 +21,12 @@ namespace AutomatinisTestavimas.Test
             _driver = new ChromeDriver();
             _driver.Url = "https://demo.seleniumeasy.com/basic-checkbox-demo.html";
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            _driver.Manage().Window.Maximize();
         }
         [OneTimeTearDown]
         public static void TearDovn()
         {
-            _driver.Quit();
+           // _driver.Quit();
         }
         [Test]
         public void FirstBlockCheck()
