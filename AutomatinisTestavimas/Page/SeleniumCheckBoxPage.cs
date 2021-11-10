@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -11,10 +11,10 @@ namespace AutomatinisTestavimas.Page
     class SeleniumCheckBoxPage
     {
         private IWebDriver _driver;
-        private IWebElement _text => _driver.FindElement(By.Id("txtAge"));
         private IWebElement _checkBox => _driver.FindElement(By.Id("isAgeSelected"));
+        private IWebElement _text => _driver.FindElement(By.Id("txtAge"));       
         private IWebElement _firstCheckbox => _driver.FindElement(By.Id("isAgeSelected"));
-        private IReadOnlyCollection<IWebElement> _multipleCheckboxList => _driver.FindElements(By.CssSelector(".cb1-element"));
+        private IReadOnlyCollection<IWebElement> _multipleCheckboxList => _driver.FindElements(By.ClassName(".cb1-element"));
         private IWebElement _button => _driver.FindElement(By.Id("check1"));
         private IWebElement _resultFromPage => _driver.FindElement(By.Id("value"));
 
@@ -28,7 +28,7 @@ namespace AutomatinisTestavimas.Page
         }
         public void CheckTextResult(string text)
         {
-            Assert.AreEqual(text, _checkBox.Text, "Tekstas neteisingas");
+            Assert.IsTrue(_text.Text.Equals("Success - Check box is checked"));
         }
         public void FirstCheckBoxClick()
         {
@@ -44,7 +44,7 @@ namespace AutomatinisTestavimas.Page
         }
         public void ButtonName(string text)
         {
-            Assert.AreEqual(text, _resultFromPage.Text, "Tekstas neteisingas");
+            Assert.IsTrue(_button.Text.Equals("Uncheck All"));
         }
             
         public void ButtonClick()
