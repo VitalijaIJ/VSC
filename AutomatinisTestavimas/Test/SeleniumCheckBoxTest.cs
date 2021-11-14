@@ -41,7 +41,7 @@ namespace AutomatinisTestavimas.Test
             SeleniumCheckBoxPage page = new SeleniumCheckBoxPage(_driver);
             page.FirstCheckBoxClick();
             page.MultipleCheckboxClick();
-            page.ButtonName("Uncheck All");
+            page.ButtonName();
         }
         [Test]
         public void SecondBlockSecondTask()
